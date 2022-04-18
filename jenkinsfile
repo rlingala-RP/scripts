@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage('checkout') {
             steps {
-                git credentialsId: 'jenkins', url: 'git@github.com:rlingala-RP/Gowebapi.git'
+                git credentialsId: 'jenkins', url: 'git@github.com:rlingala-RP/scripts.git'
             }
 
         }
