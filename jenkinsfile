@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        label 'slave'
+        docker { image 'sonarsource/sonar-scanner-cli' }
     }
     stages{
         stage('checkout') {
@@ -10,7 +10,7 @@ pipeline{
         }
         stage('Sonarqube scan on Gowebapi') {
             steps {
-                sh 'sonar-scanner.bat -D"sonar.projectKey=psa" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=b2528adf6371b496fced39a8fe8a2ebf0d2b140a"'
+                sh 'sonar-scanner -D"sonar.projectKey=psa" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=b2528adf6371b496fced39a8fe8a2ebf0d2b140a"'
             }
         }
     }
