@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        docker { image 'sonarsource/sonar-scanner-cli'}
+        label 'slave'
     }
     stages{
         stage('checkout') {
