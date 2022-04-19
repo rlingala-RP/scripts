@@ -15,7 +15,7 @@ pipeline{
         }
         stage('build docker image') {
            steps{
-              sh 'cd Gowebapi; docker build -t localhost:8085:Gowebapi'
+              sh 'pwd; docker build -t localhost:8085:Gowebapi'
             }
         }
     }
