@@ -2,10 +2,12 @@ pipeline{
     agent {
              label 'slave'
              }
-    environment {
+    stages{
+        stage('Initialize') {
+        def dockerHome = tool 'MyDocker'
+        def mavenHome  = tool 'MyMaven'
         env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
     }
-    stages{
         stage('checkout') {
             steps {
                 git credentialsId: 'jenkins', url: 'git@github.com:rlingala-RP/Gowebapi.git'
