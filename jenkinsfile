@@ -2,6 +2,9 @@ pipeline{
     agent {
              label 'slave'
              }
+    environment {
+        env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+    }
     stages{
         stage('checkout') {
             steps {
