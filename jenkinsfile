@@ -4,9 +4,11 @@ pipeline{
              }
     stages{
         stage('Initialize') {
+            steps {
         def dockerHome = tool 'mydocker'
         env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+            }
+        }
         stage('checkout') {
             steps {
                 git credentialsId: 'jenkins', url: 'git@github.com:rlingala-RP/Gowebapi.git'
