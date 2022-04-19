@@ -1,2 +1,3 @@
 FROM sonarsource/sonar-scanner-cli
-RUN yum install docker
+RUN apk add --update docker openrc
+RUN rc-update add docker boot
