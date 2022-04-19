@@ -13,5 +13,10 @@ pipeline{
                sh 'go test --cover'
             }
         }
+        stage('build docker image') {
+           steps{
+              sh 'cd Gowebapi; docker build -t localhost:8085:Gowebapi'
+            }
+        }
     }
-}
+}    
