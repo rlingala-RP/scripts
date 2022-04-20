@@ -20,6 +20,7 @@ services:
     - 8081:8081
     - 8083:8083
     - 8085:8085
+    - 2375:2375
     networks:
       - mynetwork
 networks:
