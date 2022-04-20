@@ -18,7 +18,7 @@ RUN \
   apt-get install -y software-properties-common && \
   apt-get update && \
   apt-get install -y default-jre && \
-  apt-get install -y wget &&\
+  apt-get install -y wget curl &&\
   apt-get clean && \
   rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -43,13 +43,13 @@ RUN mkdir -p $GOPATH
 RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
   && tar xzvf docker-17.04.0-ce.tgz \
   && mv docker/docker /usr/local/bin \
-  && rm -r docker docker-17.04.0-ce.tgz    
+  && rm -r docker docker-17.04.0-ce.tgz
 
 ##########################################
 RUN apt-get update && apt-get install -y make gcc git rsync && \
     apt-get clean && \
     rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    
+
 
 WORKDIR $HOME
 USER root
